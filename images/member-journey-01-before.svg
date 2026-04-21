@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Transformation placeholder before image 01</title>
+  <desc id="desc">Replaceable before image placeholder for a gym transformation gallery.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#2f1214" />
+      <stop offset="55%" stop-color="#141414" />
+      <stop offset="100%" stop-color="#080808" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#c8464e" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#7f1f24" stop-opacity="0.2" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)" />
+  <circle cx="170" cy="210" r="140" fill="#ffffff" opacity="0.06" />
+  <circle cx="1040" cy="1270" r="180" fill="#ffffff" opacity="0.04" />
+  <rect x="70" y="70" width="1060" height="1360" rx="48" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="4" />
+  <rect x="110" y="110" width="980" height="180" rx="28" fill="url(#panel)" />
+  <text x="150" y="190" fill="#f6d7d9" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="10">BEFORE</text>
+  <text x="150" y="248" fill="#ffffff" opacity="0.78" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">PLACEHOLDER IMAGE 01</text>
+  <ellipse cx="600" cy="680" rx="190" ry="240" fill="#cfcfcf" opacity="0.22" />
+  <circle cx="600" cy="400" r="118" fill="#d8d8d8" opacity="0.22" />
+  <path d="M450 620c34 66 266 66 300 0v328c0 84-66 152-150 152s-150-68-150-152Z" fill="#e4e4e4" opacity="0.18" />
+  <path d="M414 1312c66-24 124-36 186-36s120 12 186 36" fill="none" stroke="#ffffff" stroke-opacity="0.22" stroke-width="8" stroke-linecap="round" />
+  <text x="600" y="1184" fill="#ffffff" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="50" font-weight="700" letter-spacing="8">SWAP FOR REAL CLIENT PHOTO</text>
+  <text x="600" y="1252" fill="#ffffff" opacity="0.72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">Use any portrait progress image later</text>
+</svg>

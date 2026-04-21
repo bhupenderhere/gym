@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Transformation placeholder before image 02</title>
+  <desc id="desc">Replaceable before image placeholder for a second gym transformation example.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#301b0f" />
+      <stop offset="60%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#170d08" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f29d38" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#8f4a12" stop-opacity="0.22" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)" />
+  <path d="M0 1230c232-96 417-120 555-72s348 42 645-28v370H0Z" fill="#ffffff" opacity="0.04" />
+  <rect x="70" y="70" width="1060" height="1360" rx="48" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="4" />
+  <rect x="110" y="110" width="980" height="180" rx="28" fill="url(#panel)" />
+  <text x="150" y="190" fill="#ffe6c9" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="10">BEFORE</text>
+  <text x="150" y="248" fill="#ffffff" opacity="0.78" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">PLACEHOLDER IMAGE 02</text>
+  <rect x="260" y="384" width="680" height="640" rx="340" fill="#f8efe8" opacity="0.11" />
+  <circle cx="600" cy="395" r="116" fill="#f8efe8" opacity="0.18" />
+  <path d="M468 612c18 62 246 62 264 0l36 330c11 99-68 189-168 189s-179-90-168-189Z" fill="#fff3e7" opacity="0.18" />
+  <path d="M246 1182h708" stroke="#ffffff" stroke-opacity="0.14" stroke-width="8" stroke-linecap="round" />
+  <text x="600" y="1242" fill="#ffffff" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" letter-spacing="7">TEMP IMAGE FOR BEFORE SHOT</text>
+  <text x="600" y="1302" fill="#ffffff" opacity="0.72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">Replace anytime with a member start photo</text>
+</svg>

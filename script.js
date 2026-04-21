@@ -1,6 +1,5 @@
 const siteHeader = document.getElementById("site-header");
 const siteFooter = document.getElementById("site-footer");
-const imageExtensions = [".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif"];
 const trialTicketStorageKey = "aquilaStrengthTrialTicket";
 let activeTrialTicket = null;
 
@@ -11,18 +10,17 @@ const siteConfig = {
   phoneHref: "tel:+15550123456",
   phoneLabel: "+1 (555) 012-3456",
   facebookHref: "https://www.facebook.com/",
-  instagramHref: "https://www.instagram.com/",
+  instagramHref: "https://www.instagram.com/aquilastrength/",
   whatsappHref: "https://wa.me/15550123456",
   emailHref: "mailto:hello@aquilastrengthgym.com",
   emailLabel: "hello@aquilastrengthgym.com",
-  address: "245 Iron District Road, Downtown Fitness Block",
+  address: "Vasishat Niwas, Sanjauli Cemetery Rd, Cemetery, Sanjauli, Shimla, Himachal Pradesh 171006",
   footerTagline: "Premium coaching, focused training, and a community built around results.",
   navLinks: [
     { label: "Home", href: "/" },
     { label: "Programs", href: "/pages/programs.html" },
     { label: "Pricing", href: "/pages/pricing.html" },
     { label: "Trainers", href: "/pages/trainers.html" },
-    { label: "Gallery", href: "/pages/gallery.html" },
     { label: "Contact", href: "/pages/contact.html" },
   ],
   socialLinks: [],
@@ -35,6 +33,41 @@ siteConfig.socialLinks = [
   { label: "Email", href: siteConfig.emailHref, icon: "email" },
 ];
 
+const instagramPreviewPosts = [
+  {
+    title: "Strength Floor Sessions",
+    tag: "Gym Floor",
+    imageSrc: "/images/gym-floor.jpg",
+    imageAlt: "Main gym floor at Aquila Strength Gym",
+    caption: "Heavy compounds, focused coaching, and peak training-hour energy.",
+    href: siteConfig.instagramHref,
+  },
+  {
+    title: "Free Weights In Action",
+    tag: "Lifting",
+    imageSrc: "/images/free-weights.jpg",
+    imageAlt: "Free weights area at Aquila Strength Gym",
+    caption: "Built for serious strength work, progressive overload, and consistent sessions.",
+    href: siteConfig.instagramHref,
+  },
+  {
+    title: "Small Group Energy",
+    tag: "Community",
+    imageSrc: "/images/group-workout.jpg",
+    imageAlt: "Group training session at Aquila Strength Gym",
+    caption: "High-accountability training blocks for members who push harder together.",
+    href: siteConfig.instagramHref,
+  },
+  {
+    title: "Coach-Led Training",
+    tag: "Coaching",
+    imageSrc: "/images/personal-training.jpg",
+    imageAlt: "Personal training session at Aquila Strength Gym",
+    caption: "Technique work, structure, and guided sessions for faster progress.",
+    href: siteConfig.instagramHref,
+  },
+];
+
 const escapeHtml = (value) =>
   String(value)
     .replace(/&/g, "&amp;")
@@ -44,19 +77,6 @@ const escapeHtml = (value) =>
     .replace(/'/g, "&#39;");
 
 const escapeAttribute = (value) => escapeHtml(value);
-
-const toTitleCase = (value) =>
-  value
-    .replace(/\.[^.]+$/, "")
-    .replace(/[-_]+/g, " ")
-    .replace(/\s+/g, " ")
-    .trim()
-    .replace(/\b\w/g, (char) => char.toUpperCase());
-
-const isImageFile = (value) => {
-  const lowercase = value.toLowerCase();
-  return imageExtensions.some((extension) => lowercase.endsWith(extension));
-};
 
 const formatDisplayDate = (value) => {
   const date = value instanceof Date ? value : new Date(value);
@@ -263,8 +283,9 @@ const navLinks = document.querySelectorAll(".nav-menu a");
 const revealItems = document.querySelectorAll(".reveal");
 const contactForm = document.getElementById("contact-form");
 const feedback = document.getElementById("form-feedback");
-const galleryGrid = document.getElementById("gallery-grid");
+const instagramPostGrid = document.getElementById("instagram-post-grid");
 const trialDateInput = document.getElementById("trial-date");
+const trialDateTrigger = document.querySelector('[data-date-trigger="trial-date"]');
 const trialTicketPanel = document.getElementById("trial-ticket-panel");
 const downloadTicketButton = document.getElementById("download-ticket");
 const ticketCodeInput = document.getElementById("ticket-code-input");
@@ -277,6 +298,80 @@ const ticketPhoneElement = document.getElementById("ticket-phone");
 const ticketDateElement = document.getElementById("ticket-date");
 const ticketIssuedElement = document.getElementById("ticket-issued");
 const ticketNoteElement = document.getElementById("ticket-note");
+
+const getHashTarget = () => {
+  if (!window.location.hash) {
+    return null;
+  }
+
+  try {
+    const target = document.querySelector(window.location.hash);
+    return target instanceof HTMLElement ? target : null;
+  } catch (error) {
+    return null;
+  }
+};
+
+const getStickyHeaderOffset = () => {
+  const headerHeight = siteHeader instanceof HTMLElement ? siteHeader.offsetHeight : 0;
+  return headerHeight + 24;
+};
+
+const renderInstagramWidget = () => {
+  if (!instagramPostGrid) {
+    return;
+  }
+
+  instagramPostGrid.innerHTML = instagramPreviewPosts
+    .map(
+      (post) => `
+        <a
+          class="instagram-post-card"
+          href="${escapeAttribute(post.href)}"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="${escapeAttribute(`${post.title} on Instagram profile @aquilastrength`)}"
+        >
+          <div class="instagram-post-media">
+            <img
+              src="${escapeAttribute(post.imageSrc)}"
+              alt="${escapeAttribute(post.imageAlt)}"
+              loading="lazy"
+            />
+          </div>
+          <div class="instagram-post-body">
+            <span class="instagram-post-tag">${escapeHtml(post.tag)}</span>
+            <strong>${escapeHtml(post.title)}</strong>
+            <p>${escapeHtml(post.caption)}</p>
+            <span class="instagram-post-link">View Profile</span>
+          </div>
+        </a>
+      `
+    )
+    .join("");
+};
+
+const scrollToHashTarget = (behavior = "smooth") => {
+  const target = getHashTarget();
+
+  if (!target) {
+    return;
+  }
+
+  const top = target.getBoundingClientRect().top + window.scrollY - getStickyHeaderOffset();
+  window.scrollTo({
+    top: Math.max(top, 0),
+    behavior,
+  });
+};
+
+const syncHashScroll = (behavior = "smooth") => {
+  window.requestAnimationFrame(() => {
+    window.requestAnimationFrame(() => {
+      scrollToHashTarget(behavior);
+    });
+  });
+};
 
 const renderTrialTicket = (ticket) => {
   if (
@@ -458,91 +553,6 @@ const loadStoredTrialTicket = () => {
   }
 };
 
-const renderGallery = (files) => {
-  if (!galleryGrid) {
-    return;
-  }
-
-  if (!files.length) {
-    galleryGrid.innerHTML = `
-      <article class="gallery-card gallery-placeholder">
-        <div class="gallery-copy">
-          <strong>No images yet</strong>
-          <p>Add image files to the <code>images</code> folder and reload the page.</p>
-        </div>
-      </article>
-    `;
-    return;
-  }
-
-  galleryGrid.innerHTML = files
-    .map((file, index) => {
-      const title = toTitleCase(file);
-      const descriptions = [
-        "Strength zone built for heavy compound lifts and serious sessions.",
-        "Coaching-ready floor space designed for guided personal training.",
-        "High-energy training environment with premium equipment and lighting.",
-        "Functional area for conditioning, circuits, and team-based workouts.",
-      ];
-      const description = descriptions[index % descriptions.length];
-
-      return `
-        <article class="gallery-card">
-          <img src="/images/${encodeURIComponent(file)}" alt="${title} at Aquila Strength Gym" loading="lazy" />
-          <div class="gallery-copy">
-            <strong>${title}</strong>
-            <p>${description}</p>
-          </div>
-        </article>
-      `;
-    })
-    .join("");
-};
-
-const loadGalleryFromDirectory = async () => {
-  if (!galleryGrid) {
-    return;
-  }
-
-  try {
-    const manifestResponse = await fetch("/gallery-manifest.json");
-    if (manifestResponse.ok) {
-      const manifest = await manifestResponse.json();
-      const files = Array.isArray(manifest.images)
-        ? manifest.images.filter((file) => file && isImageFile(file))
-        : [];
-
-      renderGallery(files);
-      return;
-    }
-
-    const response = await fetch("/images/");
-    if (!response.ok) {
-      throw new Error("Directory listing unavailable.");
-    }
-
-    const markup = await response.text();
-    const parsedDocument = new DOMParser().parseFromString(markup, "text/html");
-    const files = [...parsedDocument.querySelectorAll('a[href]')]
-      .map((link) => link.getAttribute("href") || "")
-      .map((href) => href.split("/").pop() || "")
-      .filter((file) => file && isImageFile(file))
-      .filter((file, index, allFiles) => allFiles.indexOf(file) === index)
-      .sort((a, b) => a.localeCompare(b));
-
-    renderGallery(files);
-  } catch (error) {
-    galleryGrid.innerHTML = `
-      <article class="gallery-card gallery-placeholder">
-        <div class="gallery-copy">
-          <strong>Gallery unavailable</strong>
-          <p>Serve the site through a local web server so the page can read files from <code>images</code>.</p>
-        </div>
-      </article>
-    `;
-  }
-};
-
 if (navToggle && navMenu) {
   navToggle.addEventListener("click", () => {
     const isOpen = navMenu.classList.toggle("open");
@@ -581,10 +591,32 @@ if (navToggle && navMenu) {
   });
 }
 
-loadGalleryFromDirectory();
+renderInstagramWidget();
+
+if (window.location.hash) {
+  syncHashScroll("auto");
+  window.addEventListener("load", () => syncHashScroll("auto"), { once: true });
+}
+
+window.addEventListener("hashchange", () => {
+  syncHashScroll("smooth");
+});
 
 if (trialDateInput) {
   trialDateInput.min = new Date().toISOString().split("T")[0];
+}
+
+if (trialDateInput && trialDateTrigger instanceof HTMLButtonElement) {
+  trialDateTrigger.addEventListener("click", () => {
+    trialDateInput.focus();
+
+    if (typeof trialDateInput.showPicker === "function") {
+      trialDateInput.showPicker();
+      return;
+    }
+
+    trialDateInput.click();
+  });
 }
 
 const storedTrialTicket = loadStoredTrialTicket();

@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1500" role="img" aria-labelledby="title desc">
+  <title id="title">Transformation placeholder after image 02</title>
+  <desc id="desc">Replaceable after image placeholder for a second gym transformation example.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#111f2e" />
+      <stop offset="58%" stop-color="#111111" />
+      <stop offset="100%" stop-color="#09131c" />
+    </linearGradient>
+    <linearGradient id="panel" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#53b8ff" stop-opacity="0.9" />
+      <stop offset="100%" stop-color="#205684" stop-opacity="0.22" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)" />
+  <path d="M0 1230c207-88 392-108 555-58s370 42 645-34v362H0Z" fill="#ffffff" opacity="0.04" />
+  <rect x="70" y="70" width="1060" height="1360" rx="48" fill="none" stroke="#ffffff" stroke-opacity="0.12" stroke-width="4" />
+  <rect x="110" y="110" width="980" height="180" rx="28" fill="url(#panel)" />
+  <text x="150" y="190" fill="#d6efff" font-family="Arial, Helvetica, sans-serif" font-size="72" font-weight="700" letter-spacing="10">AFTER</text>
+  <text x="150" y="248" fill="#ffffff" opacity="0.78" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="5">PLACEHOLDER IMAGE 02</text>
+  <rect x="286" y="392" width="628" height="620" rx="314" fill="#e5f4ff" opacity="0.12" />
+  <circle cx="600" cy="404" r="110" fill="#e5f4ff" opacity="0.22" />
+  <path d="M484 610c20 52 212 52 232 0l30 330c9 92-57 172-146 172s-155-80-146-172Z" fill="#f2f9ff" opacity="0.2" />
+  <path d="M284 1182h632" stroke="#ffffff" stroke-opacity="0.14" stroke-width="8" stroke-linecap="round" />
+  <text x="600" y="1242" fill="#ffffff" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="700" letter-spacing="7">TEMP IMAGE FOR AFTER SHOT</text>
+  <text x="600" y="1302" fill="#ffffff" opacity="0.72" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="28" letter-spacing="4">Replace anytime with a finished progress photo</text>
+</svg>

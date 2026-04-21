@@ -50,11 +50,6 @@
     <main>
       <section class="page-hero section">
         <div class="container">
-          <nav class="breadcrumbs" aria-label="Breadcrumb">
-            <a href="/">Home</a>
-            <span>/</span>
-            <span>Contact</span>
-          </nav>
           <div class="page-hero-card reveal">
             <p class="eyebrow">Contact &amp; Trial Booking</p>
             <h1>Book a free trial, download your ticket, and visit Aquila Strength Gym</h1>
@@ -76,7 +71,7 @@
             </article>
             <article class="contact-quick-card reveal">
               <h3>Visit Address</h3>
-              <p>245 Iron District Road, Downtown Fitness Block</p>
+              <p>Vasishat Niwas, Sanjauli Cemetery Rd, Cemetery, Sanjauli, Shimla, Himachal Pradesh 171006</p>
               <p>Walk-ins welcome. Best visiting windows are 7 AM to 10 AM and 5 PM to 9 PM.</p>
             </article>
           </div>
@@ -92,7 +87,7 @@
             </div>
             <div class="contact-info">
               <a href="tel:+15550123456">Phone: +1 (555) 012-3456</a>
-              <p>Address: 245 Iron District Road, Downtown Fitness Block</p>
+              <p>Address: Vasishat Niwas, Sanjauli Cemetery Rd, Cemetery, Sanjauli, Shimla, Himachal Pradesh 171006</p>
               <p>Training Hours: Monday to Saturday, 5 AM - 10 PM</p>
               <p>Complete the form, download your ticket PDF, and show it at the front desk when you arrive.</p>
             </div>
@@ -136,7 +131,26 @@
               </div>
               <div class="form-group">
                 <label for="trial-date">Preferred Trial Date</label>
-                <input id="trial-date" name="trialDate" type="date" required />
+                <div class="date-input-wrap">
+                  <input id="trial-date" name="trialDate" type="date" required />
+                  <button
+                    class="date-trigger"
+                    type="button"
+                    aria-label="Open calendar"
+                    data-date-trigger="trial-date"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                      <path d="M7 2v3" />
+                      <path d="M17 2v3" />
+                      <path d="M3.5 8.5h17" />
+                      <rect x="3.5" y="4.5" width="17" height="16" rx="2.5" />
+                      <path d="M8 12h3" />
+                      <path d="M13 12h3" />
+                      <path d="M8 16h3" />
+                      <path d="M13 16h3" />
+                    </svg>
+                  </button>
+                </div>
               </div>
               <div class="form-group">
                 <label for="message">Goal / Notes</label>

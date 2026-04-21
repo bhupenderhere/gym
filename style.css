@@ -499,7 +499,6 @@ h3 {
 .stats-grid,
 .testimonials-grid,
 .program-grid,
-.gallery-grid,
 .transform-grid,
 .steps-grid,
 .pricing-grid,
@@ -619,7 +618,6 @@ h3 {
 .stat-card,
 .testimonial-card,
 .program-card,
-.gallery-card,
 .step-card,
 .price-card,
 .trainer-card {
@@ -690,69 +688,14 @@ h3 {
   stroke-linejoin: round;
 }
 
-.gallery-grid {
-  grid-template-columns: 1fr;
-}
-
-.gallery-card {
-  position: relative;
-  overflow: hidden;
-  min-height: 280px;
-  border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
-  box-shadow: var(--shadow);
-}
-
-.gallery-card img {
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-}
-
-.gallery-card::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.78) 100%);
-  pointer-events: none;
-}
-
-.gallery-copy {
-  position: absolute;
-  left: 1.2rem;
-  right: 1.2rem;
-  bottom: 1.2rem;
-  z-index: 1;
-}
-
-.gallery-copy strong {
-  display: block;
-  font-family: "Barlow Condensed", sans-serif;
-  font-size: 1.7rem;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.gallery-copy p {
-  margin: 0.35rem 0 0;
-  color: #dddddd;
-}
-
-.gallery-placeholder {
+.instagram-widget {
   display: grid;
-  place-items: center;
-  min-height: 220px;
-  background:
-    linear-gradient(135deg, rgba(227, 27, 35, 0.16), transparent 45%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(17, 17, 17, 0.96));
+  gap: 1rem;
 }
 
-.gallery-placeholder::after {
-  display: none;
-}
-
-.feed-frame-wrap {
+.instagram-widget-bar {
+  display: grid;
+  gap: 1rem;
   padding: 1rem;
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -762,15 +705,164 @@ h3 {
   box-shadow: var(--shadow);
 }
 
-.lightwidget-widget {
+.instagram-profile-card {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.instagram-avatar {
+  width: 4.5rem;
+  height: 4.5rem;
   display: block;
-  max-height: 720px;
-  border-radius: calc(var(--radius) - 8px);
+  border-radius: 1.4rem;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow);
+}
+
+.instagram-handle {
+  margin: 0 0 0.35rem;
+  color: #ff9ba0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.instagram-profile-card h3 {
+  margin: 0;
+}
+
+.instagram-profile-card p:last-child {
+  margin: 0.45rem 0 0;
+}
+
+.instagram-cta-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.instagram-post-grid {
+  display: grid;
+  gap: 1rem;
+}
+
+.instagram-post-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.03), rgba(255, 255, 255, 0.01));
+  box-shadow: var(--shadow);
+  color: inherit;
+  text-decoration: none;
+  transition: transform 220ms ease, border-color 220ms ease;
+}
+
+.instagram-post-card:hover,
+.instagram-post-card:focus-visible {
+  transform: translateY(-0.25rem);
+  border-color: rgba(227, 27, 35, 0.38);
+}
+
+.instagram-post-media {
+  aspect-ratio: 1 / 1;
+}
+
+.instagram-post-media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.instagram-post-body {
+  padding: 1rem;
+}
+
+.instagram-post-tag {
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  padding: 0.35rem 0.6rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.03);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 0.9rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.instagram-post-body strong {
+  display: block;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.instagram-post-body p {
+  margin: 0.45rem 0 0;
+  color: #dddddd;
+}
+
+.instagram-post-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: #ff9ba0;
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .transform-card {
   padding: 1rem;
   border-radius: var(--radius);
+}
+
+.transform-shot {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  border-radius: calc(var(--radius) - 8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(135deg, rgba(227, 27, 35, 0.18), transparent 45%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(17, 17, 17, 0.96));
+}
+
+.transform-photo {
+  display: block;
+  width: 100%;
+  min-height: 220px;
+  object-fit: cover;
+}
+
+.transform-shot::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 55%, rgba(0, 0, 0, 0.78) 100%);
+  pointer-events: none;
+}
+
+.transform-label {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  z-index: 1;
+  padding: 0.35rem 0.7rem;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.42);
+  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .placeholder {
@@ -787,7 +879,8 @@ h3 {
     linear-gradient(180deg, #1b1b1b 0%, #111111 100%);
 }
 
-.transform-card .after {
+.transform-card .after,
+.transform-card .transform-shot + .transform-shot {
   margin-top: 1rem;
 }
 
@@ -815,6 +908,11 @@ h3 {
 .price-card .price span {
   font-size: 1rem;
   color: var(--muted);
+}
+
+.price-note {
+  margin: -0.35rem 0 1rem;
+  font-size: 0.95rem;
 }
 
 .popular {
@@ -875,6 +973,7 @@ h3 {
 .contact-form {
   padding: 1.5rem;
   border-radius: var(--radius);
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
 }
 
 .form-hidden {
@@ -961,6 +1060,10 @@ h3 {
   margin-top: 1rem;
 }
 
+.contact-form .form-group:last-of-type {
+  margin-bottom: 1.5rem;
+}
+
 label {
   display: block;
   margin-bottom: 0.45rem;
@@ -978,6 +1081,64 @@ select {
   background: rgba(255, 255, 255, 0.03);
   color: var(--white);
   transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.date-input-wrap {
+  position: relative;
+}
+
+input[type="date"] {
+  padding-right: 4.25rem;
+  color-scheme: dark;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.date-trigger {
+  position: absolute;
+  top: 50%;
+  right: 0.8rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  padding: 0;
+  border: 1px solid rgba(227, 27, 35, 0.22);
+  border-radius: 14px;
+  background: rgba(227, 27, 35, 0.12);
+  color: #ff9ba0;
+  cursor: pointer;
+  transform: translateY(-50%);
+  transition:
+    border-color 0.25s ease,
+    background 0.25s ease,
+    color 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.date-trigger:hover,
+.date-trigger:focus-visible {
+  border-color: rgba(227, 27, 35, 0.5);
+  background: rgba(227, 27, 35, 0.18);
+  color: var(--white);
+  box-shadow: 0 0 0 4px rgba(227, 27, 35, 0.1);
+  outline: none;
+}
+
+.date-trigger svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
 input::placeholder,
@@ -1185,7 +1346,6 @@ select:focus {
 
   .stats-grid,
   .testimonials-grid,
-  .gallery-grid,
   .pricing-grid,
   .trainers-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -1203,6 +1363,10 @@ select:focus {
   .contact-grid,
   .cta-box,
   .footer-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .instagram-post-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1230,9 +1394,23 @@ select:focus {
     pointer-events: auto;
   }
 
-  .hero-grid,
-  .contact-grid {
+  .hero-grid {
     grid-template-columns: minmax(0, 1.3fr) minmax(320px, 0.7fr);
+  }
+
+  .instagram-widget-bar {
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+  }
+
+  .contact-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2rem;
+  }
+
+  .contact-form,
+  .trial-ticket-panel {
+    padding: 1.85rem;
   }
 
   .program-grid {
